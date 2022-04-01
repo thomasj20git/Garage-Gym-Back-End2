@@ -6,6 +6,7 @@ const NewPostComponent = (props) => {
     const [newPost, setNewPost] = useState({
         gymName: "",
         gymEquipment: "",
+        gymImage: ""
     })
     const toggleShowing = () =>{
         setShowing(!showing)
@@ -32,6 +33,7 @@ const NewPostComponent = (props) => {
                 setNewPost({
                     gymName: "",
                     gymEquipment: "",
+                    gymImage: ""
             })
             setIsValidState({
                  valid: true,
@@ -52,6 +54,7 @@ const NewPostComponent = (props) => {
                     {props.newItemServiceError ? <p className="form-error">{props.newItemServiceError}</p> : null}
                     Gym Name: <input onChange={handleInputChange} type="text" name="gymName" value={newPost.gymName}/>
                     Equipment: <input onChange={handleInputChange} type="text" name="gymEquipment" value={newPost.gymEquipment}/>
+                    Image URL: <input onChange={handleInputChange} type="text" name="gymImage" value={newPost.gymImage}/>
                     <button type="submit">Share Your Post!</button>
                 </form>
             </div>

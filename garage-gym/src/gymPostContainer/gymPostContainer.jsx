@@ -3,7 +3,7 @@ import SinglePostComponent from "./singlePostComponent/singlePostComponent";
 import NewPostComponent from "./newPostComponent/newPostComponent";
 
 const GymPostContainer = () => {
-    const [gymPictures, setGymPictures] = useState([{'_id':"1", 'gymName': "Thomas' Gym", 'gymEquipment':"barbell, bench, plates"}])
+    const [gymPictures, setGymPictures] = useState([])
     const [newItemServiceError, setNewItemServiceError] = useState("")
     const createNewPost= async (newPost) => {
         const apiResponse = await fetch("http://localhost:3001/gym", {
@@ -72,14 +72,18 @@ const GymPostContainer = () => {
     // console.log(listItems)
     return (
         <div>
-            <h2>Gym Post Here</h2>
-            <NewPostComponent 
-            newItemServiceError={newItemServiceError}
-            createNewPost={createNewPost}></NewPostComponent>
-            {gymPictures.map((gymPicture)=>{
-                return <SinglePostComponent key={gymPicture._id} gymPicture={gymPicture} deletePosts={deletePosts} updatePost={updatePost}></SinglePostComponent>
-            })}
             
+            <div id="posts-flex-container">
+                <div id="create-new-post">
+                <h2>Post your gym!</h2>
+                    <NewPostComponent newItemServiceError={newItemServiceError} createNewPost={createNewPost}></NewPostComponent>
+                </div>
+                <div id="all-the-pics">
+                    {gymPictures.map((gymPicture)=>{
+                        return <SinglePostComponent key={gymPicture._id} gymPicture={gymPicture} deletePosts={deletePosts} updatePost={updatePost}></SinglePostComponent>
+                    })}
+                </div>
+            </div> 
         </div>
     )
 }

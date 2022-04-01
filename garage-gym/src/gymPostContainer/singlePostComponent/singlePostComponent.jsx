@@ -27,7 +27,10 @@ const SinglePostComponent = (props) => {
     }
     return(
         <div className="index-single-post">
-            <h1>Gym Name: {props.gymPicture.gymName}</h1>
+            <h3>Gym Name: {props.gymPicture.gymName}</h3>
+            <div id="image-div">
+                <img className="images" src={props.gymPicture.gymImage}></img>
+            </div>
             <p>Gym Equipment: {props.gymPicture.gymEquipment}</p>
             <button onClick={()=>{
                 props.deletePosts(props.gymPicture._id)
@@ -40,6 +43,7 @@ const SinglePostComponent = (props) => {
                         {isValidState.valid ? null : <p className="form-error">{isValidState.message}</p>}
                         Gym Name: <input onChange={handleInputChange} type="text" name="gymName" value={updatePost.gymName}/>
                         Equipment: <input onChange={handleInputChange} type="text" name="gymEquipment" value={updatePost.gymEquipment}/>
+                        Image URL: <input onChange={handleInputChange} type="text" name="gymPicture" value={updatePost.gymImage}/>
                         <button type="submit">Reupload Post!</button>
                     </form>
                 </div>

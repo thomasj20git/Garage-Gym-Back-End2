@@ -5,8 +5,13 @@ import GymPostContainer from './gymPostContainer/gymPostContainer';
 function App() {
   return (
     <div className="App">
-      <h1>Garage Gym App!!!</h1>
+      <header className='App-header'>
+      <h1>Gym Sharing Site</h1>
+      </header>
+      <main className='main'>
       <GymPostContainer></GymPostContainer>
+      </main>
+      
     </div>
   );
 }
